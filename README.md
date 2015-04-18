@@ -11,6 +11,7 @@ Use-cases are:
 * rendering posts’ list (HTML)
 * meta-tags per each post (Text)
 * rss (HTML)
+* sorting posts Date
 
 Exported methods
 
