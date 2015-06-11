@@ -1,0 +1,25 @@
+{
+  "name": "article-data",
+  "version": "0.0.0",
+  "description": "Extract data from markdown articles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamstarkov/article-data.git"
+  },
+  "keywords": [
+    "md",
+    "markdown",
+    "commonmark",
+    "blog"
+  ],
+  "author": "Vladimir Starkov <iamstarkov@gmail.com> (https://iamstarkov.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamstarkov/article-data/issues"
+  },
+  "homepage": "https://github.com/iamstarkov/article-data#readme"
+}
