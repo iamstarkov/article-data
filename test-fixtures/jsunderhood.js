@@ -1,10 +1,10 @@
-# filipovskii
-
-_14 февраля 2015_
-
+const title = `filipovskii`;
+const date = `14 feb 2015`;
+const desc = `Эту неделю буду вести аккаунт я, <a href="https://twitter.com/filipovskii" title="Andrey Salomatin">@filipovskii</a>. Full-stack кодер, организатор <a href="https://twitter.com/moscowjs" title="MoscowJS">@moscowjs</a>, со-ведущий <a href="https://twitter.com/RadioJSPodcast" title="RadioJS Podcast">@RadioJSPodcast</a>, сёрфер-любитель. Привет!`;
+const content = `
 ## Понедельник <small>5 твитов</small>
 
-Эту неделю буду вести аккаунт я, <a href="https://twitter.com/filipovskii" title="Andrey Salomatin">@filipovskii</a>. Full-stack кодер, организатор <a href="https://twitter.com/moscowjs" title="MoscowJS">@moscowjs</a>, со-ведущий <a href="https://twitter.com/RadioJSPodcast" title="RadioJS Podcast">@RadioJSPodcast</a>, сёрфер-любитель. Привет!
+${desc}
 
 В пятницу собрались в офисе на просмотр видео с React.js Conf 2015: <a href="http://t.co/B0Be2C5XsD">youtube.com/playlist?list=…</a> Особенно порадовали Immutable.js и React Native
 
@@ -33,3 +33,14 @@ RT <a href="https://twitter.com/moscowjs" title="MoscowJS">@moscowjs</a>: 14-15 
 ## Суббота <small>1 твит</small>
 
 Очень занимательное чтиво на тему потоки vs события <a href="http://t.co/c0UPQEHPn7">static.usenix.org/events/hotos03…</a>
+`.trim();
+
+const raw = `
+# ${title}
+
+_${date}_
+
+${content}
+`.trim();
+
+export default { title, date, desc, content, raw };
