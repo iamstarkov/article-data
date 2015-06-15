@@ -6,8 +6,7 @@
 [![Dependency Status][depstat-image]][depstat-url]
 [![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
-
-> Extract data from your article
+> Extract data from your markdown article
 
 What is the goal?  
 — I need this package for bullet proof rendering posts for my blog, jsunderhood and ispeakweb. And obviously to get rid off Jekyll.

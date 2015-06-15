@@ -1,7 +1,7 @@
 {
   "name": "article-data",
   "version": "0.0.0",
-  "description": "Extract data from markdown articles",
+  "description": "Extract data from your markdown article",
   "main": "index.es5.js",
   "scripts": {
     "coverage": "istanbul cover _mocha -- --require babel/register",
