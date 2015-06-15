@@ -32,7 +32,6 @@ const extract = (input) => {
   const contentText = compose(text, remove(isEmpty, isTitle, isDate))(input);
   const contentHtml = compose(html, remove(isEmpty, isTitle, isDate))(input);
 
-  console.log(contentText)
   return {
     titleText, titleHtml,
     date, sortableDate,
