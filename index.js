@@ -1,13 +1,13 @@
 import { node, html, text, match, matchRemove, isHeader, isLevel, isParagraph, isImage } from 'commonmark-helpers';
-import { compose, trim, partial, partialRight, split, filterIndexed, join } from 'ramda';
+import { compose, trim, partial, partialRight, split, filterIndexed, join, apply } from 'ramda';
 import moment from 'moment';
 
 // utils
 const range = (start, end) =>
   (item, i, arr) => i > start && i < arr.length - 1 - end;
 
-const trimP   = input => compose(trim, join(''), filterIndexed(range(2, 3)), split(''), trim)(input || '');
-const trimH1  = input => compose(trim, join(''), filterIndexed(range(3, 4)), split(''), trim)(input || '');
+const trimP  = input => compose(trim, join(''), filterIndexed(range(2, 3)), split(''), trim)(input || '');
+const trimH1 = input => compose(trim, join(''), filterIndexed(range(3, 4)), split(''), trim)(input || '');
 
 // matchers
 const isTitle = event => isHeader(node(event)) && isLevel(node(event), 1);
@@ -15,7 +15,7 @@ const isEmpty = event => !node(event).literal;
 const isValidDate = input => moment(new Date(input)).isValid();
 const isDate = event => node(event).literal && isValidDate(node(event).literal);
 const isDesc = (event, date) => !text(node(event)).match(date) && isParagraph(node(event));
-const remove = (...matchers) => input => compose.apply(null, matchers.map(item => partialRight(matchRemove, item)))(input);
+const remove = (...matchers) => input => apply(compose, matchers.map(item => partialRight(matchRemove, item)))(input);
 
 const extract = (input) => {
   const titleText = compose(trim,  text, partialRight(match, isTitle))(input);
