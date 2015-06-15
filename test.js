@@ -8,8 +8,6 @@ import extract from './index';
 import iamstarkovRaw from './test-fixtures/iamstarkov';
 import jsunderhoodRaw from './test-fixtures/jsunderhood';
 
-
-
 const getHtml = compose(trimP, html);
 
 /**
