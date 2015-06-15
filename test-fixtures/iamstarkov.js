@@ -3,9 +3,11 @@ const title = 'Minimum `viable` blog';
 const date = '20 april 2015';
 
 const desc = `
-You should have ability to write it, readers — to read it.
+You should have \`ability\` to write it, readers — to read it.
 Content is a king. Spend time on writing, not on developing.
 `.trim();
+
+const image = 'https://i.imgur.com/JrXX7wT.jpg';
 
 const content = `
 ${desc}
@@ -13,6 +15,8 @@ ${desc}
 ## Nobody cares
 
 Nobody cares about you, your design or technical skills.
+
+![](${image})
 
 ## mvb
 
@@ -32,4 +36,4 @@ _${date}_
 ${content}
 `.trim();
 
-export default { title, date, desc, content, raw };
+export default { title, date, desc, image, content, raw };

@@ -1,6 +1,8 @@
 const title = `filipovskii`;
 const date = `14 feb 2015`;
 const desc = `Эту неделю буду вести аккаунт я, <a href="https://twitter.com/filipovskii" title="Andrey Salomatin">@filipovskii</a>. Full-stack кодер, организатор <a href="https://twitter.com/moscowjs" title="MoscowJS">@moscowjs</a>, со-ведущий <a href="https://twitter.com/RadioJSPodcast" title="RadioJS Podcast">@RadioJSPodcast</a>, сёрфер-любитель. Привет!`;
+const image = ``;
+
 const content = `
 ## Понедельник <small>5 твитов</small>
 
@@ -43,4 +45,4 @@ _${date}_
 ${content}
 `.trim();
 
-export default { title, date, desc, content, raw };
+export default { title, date, desc, image, content, raw };
