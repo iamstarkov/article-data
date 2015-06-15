@@ -2,9 +2,16 @@
   "name": "article-data",
   "version": "0.0.0",
   "description": "Extract data from markdown articles",
-  "main": "index.js",
+  "main": "index.es5.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "coverage": "istanbul cover _mocha -- --require babel/register",
+    "precoveralls": "npm run coverage",
+    "coveralls": "coveralls < coverage/lcov.info",
+    "test": "mocha --require babel/register",
+    "tdd": "npm test -- --watch",
+    "transpile": "babel index.js > index.es5.js",
+    "prepublish": "npm run transpile",
+    "postpublish": "rm *.es5.js && git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -21,5 +28,17 @@
   "bugs": {
     "url": "https://github.com/iamstarkov/article-data/issues"
   },
-  "homepage": "https://github.com/iamstarkov/article-data#readme"
+  "homepage": "https://github.com/iamstarkov/article-data#readme",
+  "devDependencies": {
+    "babel": "^5.5.8",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.15",
+    "mocha": "^2.2.5",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "dependencies": {
+    "commonmark-helpers": "^0.3.0",
+    "moment": "^2.10.3",
+    "ramda": "^0.14.0"
+  }
 }
