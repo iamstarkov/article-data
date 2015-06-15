@@ -17,19 +17,23 @@ Exported methods
 
 * titleHtml, titleText -> html, text
 
-  _first h1_
+  _first heading_
 
-* image -> path
+* date -> valid date
 
-  _first Image_
+  _first node, which text is valid date_
+
+* date -> valid date
+
+  _date, but you know, sortable one_
 
 * descHtml, descText -> html, text
 
-  _first or Nth root paragraph which is not date_
+  _first paragraph which not contain date_
 
-* date -> Date
+* image -> path
 
-  _first root node, which text is valid date_
+  _first image_
 
 * contentHtml -> html
 
