@@ -1,12 +1,18 @@
 import { equal } from 'assert';
 import { text, html } from 'commonmark-helpers';
 
-import { trimP, trimH1 } from './utils';
-import { compose, trim } from 'ramda';
+import { compose, trim, join, trim, filterIndexed, split } from 'ramda';
 
 import extract from './index';
 import iamstarkovRaw from './test-fixtures/iamstarkov';
 import jsunderhoodRaw from './test-fixtures/jsunderhood';
+
+// utils
+const range = (start, end) =>
+  (item, i, arr) => i > start && i < arr.length - 1 - end;
+
+const trimP   = input => compose(trim, join(''), filterIndexed(range(2, 3)), split(''), trim)(input || '');
+const trimH1  = input => compose(trim, join(''), filterIndexed(range(3, 4)), split(''), trim)(input || '');
 
 const getHtml = compose(trimP, html);
 
