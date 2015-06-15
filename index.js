@@ -2,7 +2,6 @@ import { node, html, text, match, matchRemove, isHeader, isParagraph, isImage } 
 import { compose, trim, partial, partialRight, split, filterIndexed, join } from 'ramda';
 import moment from 'moment';
 
-
 // utils
 const range = (start, end) =>
   (item, i, arr) => i > start && i < arr.length - 1 - end;
