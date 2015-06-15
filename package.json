@@ -39,6 +39,6 @@
   "dependencies": {
     "commonmark-helpers": "^0.3.0",
     "moment": "^2.10.3",
-    "ramda": "^0.14.0"
+    "ramda": "^0.15.0"
   }
 }
