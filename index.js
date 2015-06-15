@@ -1,7 +1,15 @@
 import { node, html, text, match, matchRemove, isHeader, isParagraph, isImage } from 'commonmark-helpers';
-import { trimP, trimH1 } from './utils';
-import { compose, trim, partial, partialRight } from 'ramda';
+import { compose, trim, partial, partialRight, split, filterIndexed, join } from 'ramda';
 import moment from 'moment';
+
+
+// utils
+const range = (start, end) =>
+  (item, i, arr) => i > start && i < arr.length - 1 - end;
+
+const trimP   = input => compose(trim, join(''), filterIndexed(range(2, 3)), split(''), trim)(input || '');
+const trimH1  = input => compose(trim, join(''), filterIndexed(range(3, 4)), split(''), trim)(input || '');
+
 
 const isTitle = event => isHeader(node(event));
 const isEmpty = event => !node(event).literal;
