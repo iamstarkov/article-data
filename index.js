@@ -1,8 +1,8 @@
 import { html, text, match, matchRemoveList, isHeader, isLevel, isParagraph, isImage } from 'commonmark-helpers';
-import { compose, trim, partial, partialRight, split, filterIndexed, join, apply } from 'ramda';
+import { compose, trim, split, filterIndexed, join } from 'ramda';
 import moment from 'moment';
 
-// utils
+// helpers
 const range = (start, end) =>
   (item, i, arr) => i > start && i < arr.length - 1 - end;
 
@@ -11,34 +11,34 @@ const trimH1 = input => compose(trim, join(''), filterIndexed(range(3, 4)), spli
 
 // matchers
 const isTitle = node => isHeader(node) && isLevel(node, 1);
+const isDate = node => node.literal && moment(new Date(node.literal)).isValid();
+const isDesc = (node, date) => !text(node).match(date) && isParagraph(node);
 const isEmpty = node => !node.literal;
-const isValidDate = input => moment(new Date(input)).isValid();
-const isDate = node => node.literal && isValidDate(node.literal);
-const isDesc = (node, event, date) => !text(node).match(date) && isParagraph(node);
-const getContent = partialRight(matchRemoveList, isEmpty, isTitle, isDate)
 
 const extract = (input) => {
-  const titleText = compose(trim,  text, partialRight(match, isTitle))(input);
-  const titleHtml = compose(trimH1, html, partialRight(match, isTitle))(input);
+  const title = match(input, isTitle);
+  const date = (match(input, isDate) || {}).literal;
+  const desc = match(input, node => isDesc(node, date));
+  const image = (match(input, isImage) || {}).destination;
+  const content = matchRemoveList(input, isEmpty, isTitle, isDate);
+  return { title, date, desc, image, content };
+};
 
-  const date = match(input, isDate).literal;
-  const sortableDate = new Date(date).getTime();
-
-  const descText = compose(text, partialRight(match, partialRight(isDesc, date)))(input);
-  const descHtml = compose(trimP, html, partialRight(match, partialRight(isDesc, date)))(input);
-
-  const image = (match(input, isImage) || {}).destination || '';
-
-  const contentText = compose(text, getContent)(input);
-  const contentHtml = compose(html, getContent)(input);
-
+export default (input) => {
+  const article = extract(input);
   return {
-    titleText, titleHtml,
-    date, sortableDate,
-    descText, descHtml,
-    image,
-    contentText, contentHtml
-  };
-}
+    titleText:   trim(text(article.title)),
+    titleHtml: trimH1(html(article.title)),
 
-export default extract;
+    date: article.date,
+    sortableDate: new Date(article.date || '').getTime(),
+
+    descText: text(article.desc),
+    descHtml: trimP(html(article.desc)),
+
+    image: (article.image || ''),
+
+    contentText: text(article.content),
+    contentHtml: html(article.content),
+  };
+};
