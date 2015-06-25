@@ -15,6 +15,7 @@ const isEmpty = node => !node.literal;
 const isValidDate = input => moment(new Date(input)).isValid();
 const isDate = node => node.literal && isValidDate(node.literal);
 const isDesc = (node, event, date) => !text(node).match(date) && isParagraph(node);
+const getContent = partialRight(matchRemoveList, isEmpty, isTitle, isDate)
 
 const extract = (input) => {
   const titleText = compose(trim,  text, partialRight(match, isTitle))(input);
@@ -28,8 +29,8 @@ const extract = (input) => {
 
   const image = (match(input, isImage) || {}).destination || '';
 
-  const contentText = compose(text, partialRight(matchRemoveList, isEmpty, isTitle, isDate))(input);
-  const contentHtml = compose(html, partialRight(matchRemoveList, isEmpty, isTitle, isDate))(input);
+  const contentText = compose(text, getContent)(input);
+  const contentHtml = compose(html, getContent)(input);
 
   return {
     titleText, titleHtml,
