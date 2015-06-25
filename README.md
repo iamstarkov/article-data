@@ -69,16 +69,16 @@ MIT © [Vladimir Starkov](https://iamstarkov.com/)
 
 
 [npm-url]: https://npmjs.org/package/article-data
-[npm-image]: https://img.shields.io/npm/v/article-data.svg
+[npm-image]: https://img.shields.io/npm/v/article-data.svg?style=flat-square
 
 [travis-url]: https://travis-ci.org/iamstarkov/article-data
-[travis-image]: https://img.shields.io/travis/iamstarkov/article-data/master.svg
+[travis-image]: https://img.shields.io/travis/iamstarkov/article-data/master.svg?style=flat-square
 
 [coveralls-url]: https://coveralls.io/r/iamstarkov/article-data
-[coveralls-image]: https://img.shields.io/coveralls/iamstarkov/article-data/master.svg
+[coveralls-image]: https://img.shields.io/coveralls/iamstarkov/article-data/master.svg?style=flat-square
 
 [depstat-url]: https://david-dm.org/iamstarkov/article-data
-[depstat-image]: https://david-dm.org/iamstarkov/article-data.svg
+[depstat-image]: https://david-dm.org/iamstarkov/article-data.svg?style=flat-square
 
 [depstat-dev-url]: https://david-dm.org/iamstarkov/article-data
-[depstat-dev-image]: https://david-dm.org/iamstarkov/article-data/dev-status.svg
+[depstat-dev-image]: https://david-dm.org/iamstarkov/article-data/dev-status.svg?style=flat-square
