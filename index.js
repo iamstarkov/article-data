@@ -17,7 +17,8 @@ const isEmpty = node => !node.literal;
 const extract = (input) => {
   const date = (match(input, isDate) || {}).literal;
   return {
-    title: match(input, isTitle), date,
+    title: match(input, isTitle),
+    date,
     desc: match(input, node => isDesc(node, date)),
     image: (match(input, isImage) || {}).destination,
     content: matchRemoveList(input, isEmpty, isTitle, isDate)
