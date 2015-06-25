@@ -26,7 +26,6 @@ it('utils::trimH1', ()=> { equal('trimH1', trimH1('<h1> trimH1 </h1>\n')) });
  * ## iamstarkov
  */
 const iamstarkov = extract(iamstarkovRaw.raw);
-
 it('iamstarkov :: titleText', ()=> {
   equal(iamstarkov.titleText, text(iamstarkovRaw.title));
 });
