@@ -72,10 +72,10 @@ MIT © [Vladimir Starkov](https://iamstarkov.com/)
 [npm-image]: https://img.shields.io/npm/v/article-data.svg
 
 [travis-url]: https://travis-ci.org/iamstarkov/article-data
-[travis-image]: https://img.shields.io/travis/iamstarkov/article-data.svg
+[travis-image]: https://img.shields.io/travis/iamstarkov/article-data/master.svg
 
 [coveralls-url]: https://coveralls.io/r/iamstarkov/article-data
-[coveralls-image]: https://img.shields.io/coveralls/iamstarkov/article-data.svg
+[coveralls-image]: https://img.shields.io/coveralls/iamstarkov/article-data/master.svg
 
 [depstat-url]: https://david-dm.org/iamstarkov/article-data
 [depstat-image]: https://david-dm.org/iamstarkov/article-data.svg
