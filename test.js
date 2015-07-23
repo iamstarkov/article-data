@@ -27,12 +27,12 @@ it('utils::trimH1', ()=> { equal('trimH1', trimH1('<h1> trimH1 </h1>\n')) });
  */
 const iamstarkov = extract(iamstarkovRaw.raw);
 
-it('iamstarkov :: titleText', ()=> {
-  equal(iamstarkov.titleText, text(iamstarkovRaw.title));
+it('iamstarkov :: title.text', ()=> {
+  equal(iamstarkov.title.text, text(iamstarkovRaw.title));
 });
 
-it('iamstarkov :: titleHtml', ()=> {
-  equal(iamstarkov.titleHtml, getHtml(iamstarkovRaw.title));
+it('iamstarkov :: title.html', ()=> {
+  equal(iamstarkov.title.html, getHtml(iamstarkovRaw.title));
 });
 
 it('iamstarkov :: date', ()=> {
@@ -68,12 +68,12 @@ it('iamstarkov :: contentHtml', ()=> {
  */
 const jsunderhood = extract(jsunderhoodRaw.raw);
 
-it('jsunderhood :: titleText', ()=> {
-  equal(jsunderhood.titleText, text(jsunderhoodRaw.title));
+it('jsunderhood :: title.text', ()=> {
+  equal(jsunderhood.title.text, text(jsunderhoodRaw.title));
 });
 
-it('jsunderhood :: titleHtml', ()=> {
-  equal(jsunderhood.titleHtml, getHtml(jsunderhoodRaw.title));
+it('jsunderhood :: title.html', ()=> {
+  equal(jsunderhood.title.html, getHtml(jsunderhoodRaw.title));
 });
 
 it('jsunderhood :: date', ()=> {

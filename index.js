@@ -1,5 +1,6 @@
 import { html, text, match, matchRemoveList, isHeader, isLevel, isParagraph, isImage } from 'commonmark-helpers';
 import { compose, trim, split, filterIndexed, join } from 'ramda';
+import getTitle from 'get-md-title';
 import moment from 'moment';
 
 // helpers
@@ -17,7 +18,6 @@ const isEmpty = node => !node.literal;
 const extract = (input) => {
   const date = (match(input, isDate) || {}).literal;
   return {
-    title: match(input, isTitle),
     date,
     desc: match(input, node => isDesc(node, date)),
     image: (match(input, isImage) || {}).destination,
@@ -28,8 +28,7 @@ const extract = (input) => {
 export default (input) => {
   const article = extract(input);
   return {
-    titleText: trim(text(article.title)),
-    titleHtml: trimH1(html(article.title)),
+    title: getTitle(input),
     date: article.date,
     sortableDate: new Date(article.date || '').getTime(),
     descText: text(article.desc),
