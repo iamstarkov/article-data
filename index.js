@@ -1,16 +1,9 @@
-import { html, text, match, matchRemoveList, isHeader, isLevel, isParagraph, isImage } from 'commonmark-helpers';
-import { compose, trim, split, filterIndexed, join } from 'ramda';
+import { html, text, match, matchRemoveList, isHeader, isLevel } from 'commonmark-helpers';
 import getTitle from 'get-md-title';
 import getDate  from 'get-md-date';
 import getDesc  from 'get-md-desc';
 import getImage from 'get-md-image';
 import moment from 'moment';
-
-// helpers
-const range = (start, end) =>
-  (item, i, arr) => i > start && i < arr.length - 1 - end;
-const trimP  = input => compose(trim, join(''), filterIndexed(range(2, 3)), split(''), trim)(input || '');
-const trimH1 = input => compose(trim, join(''), filterIndexed(range(3, 4)), split(''), trim)(input || '');
 
 // matchers
 const isTitle = node => isHeader(node) && isLevel(node, 1);
@@ -21,6 +14,9 @@ const extract = (input) => {
     content: matchRemoveList(input, isEmpty, isTitle)
   };
 };
+
+// что такое контент?
+// это статья без нод заголовка, дескрпшена и ноды содержащей дату
 
 export default (input) => {
   const article = extract(input);
