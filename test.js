@@ -52,7 +52,7 @@ it('iamstarkov :: desc.html', ()=> {
 });
 
 it('iamstarkov :: image', ()=> {
-  equal(iamstarkov.image, iamstarkovRaw.image);
+  equal(iamstarkov.image.src, iamstarkovRaw.image);
 });
 
 it('iamstarkov :: contentText', ()=> {
@@ -93,7 +93,7 @@ it('jsunderhood :: desc.html', ()=> {
 });
 
 it('jsunderhood :: image', ()=> {
-  equal(jsunderhood.image, jsunderhoodRaw.image);
+  equal(jsunderhood.image.src, jsunderhoodRaw.image);
 });
 
 it('jsunderhood :: contentText', ()=> {

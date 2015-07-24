@@ -3,6 +3,7 @@ import { compose, trim, split, filterIndexed, join } from 'ramda';
 import getTitle from 'get-md-title';
 import getDate  from 'get-md-date';
 import getDesc  from 'get-md-desc';
+import getImage from 'get-md-image';
 import moment from 'moment';
 
 // helpers
@@ -13,12 +14,10 @@ const trimH1 = input => compose(trim, join(''), filterIndexed(range(3, 4)), spli
 
 // matchers
 const isTitle = node => isHeader(node) && isLevel(node, 1);
-const isDesc = (node, date) => !text(node).match(date) && isParagraph(node);
 const isEmpty = node => !node.literal;
 
 const extract = (input) => {
   return {
-    image: (match(input, isImage) || {}).destination,
     content: matchRemoveList(input, isEmpty, isTitle)
   };
 };
@@ -29,7 +28,7 @@ export default (input) => {
     title: getTitle(input),
     date: getDate('DD MMM YYYY', 'en', input),
     desc: getDesc(getDate('DD MMM YYYY', 'en', input).text, input),
-    image: (article.image || ''),
+    image: getImage(input).src ? getImage(input) : { src: '', alt: '' },
     contentText: text(article.content),
     contentHtml: html(article.content),
   };
