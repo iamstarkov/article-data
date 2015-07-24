@@ -1,6 +1,7 @@
 import { html, text, match, matchRemoveList, isHeader, isLevel, isParagraph, isImage } from 'commonmark-helpers';
 import { compose, trim, split, filterIndexed, join } from 'ramda';
 import getTitle from 'get-md-title';
+import getDate from 'get-md-date';
 import moment from 'moment';
 
 // helpers
@@ -29,7 +30,7 @@ export default (input) => {
   const article = extract(input);
   return {
     title: getTitle(input),
-    date: article.date,
+    date: getDate('DD MMM YYYY', 'en', input),
     sortableDate: new Date(article.date || '').getTime(),
     descText: text(article.desc),
     descHtml: trimP(html(article.desc)),

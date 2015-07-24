@@ -36,11 +36,11 @@ it('iamstarkov :: title.html', ()=> {
 });
 
 it('iamstarkov :: date', ()=> {
-  equal(iamstarkov.date, iamstarkovRaw.date);
+  equal(iamstarkov.date.text, iamstarkovRaw.date);
 });
 
 it('iamstarkov :: sortableDate', ()=> {
-  equal(iamstarkov.sortableDate, new Date(iamstarkovRaw.date).getTime());
+  equal(iamstarkov.date.sortable, new Date(iamstarkovRaw.date).getTime());
 });
 
 it('iamstarkov :: descText', ()=> {
@@ -77,11 +77,11 @@ it('jsunderhood :: title.html', ()=> {
 });
 
 it('jsunderhood :: date', ()=> {
-  equal(jsunderhood.date, jsunderhoodRaw.date);
+  equal(jsunderhood.date.text, jsunderhoodRaw.date);
 });
 
 it('jsunderhood :: sortableDate', ()=> {
-  equal(jsunderhood.sortableDate, new Date(jsunderhoodRaw.date).getTime());
+  equal(jsunderhood.date.sortable, new Date(jsunderhoodRaw.date).getTime());
 });
 
 it('jsunderhood :: descText', ()=> {

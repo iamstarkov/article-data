@@ -1,6 +1,6 @@
 const title = 'Minimum `viable` blog';
 
-const date = '20 april 2015';
+const date = '20 apr 2015';
 
 const desc = `
 You should have \`ability\` to write it, readers — to read it.
