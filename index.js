@@ -20,12 +20,14 @@ const extract = (input) => {
 
 export default (input) => {
   const article = extract(input);
+  const pattern = 'DD MMMM YYYY';
+  const locale = 'en';
   return {
     title: getTitle(input),
-    date: getDate('DD MMM YYYY', 'en', input),
-    desc: getDesc(getDate('DD MMM YYYY', 'en', input).text, input),
+    date: getDate(pattern, locale, input),
+    desc: getDesc(getDate(pattern, locale, input).text, input),
     image: getImage(input).src ? getImage(input) : { src: '', alt: '' },
-    contentText: text(article.content),
-    contentHtml: html(article.content),
+    // contentText: text(article.content),
+    // contentHtml: html(article.content),
   };
 };

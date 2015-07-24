@@ -1,74 +1,21 @@
 import { equal } from 'assert';
-import { text, html } from 'commonmark-helpers';
-import trimTag from 'trim-html-tag';
-
-import { compose, trim, join, trim, filterIndexed, split } from 'ramda';
-
 import extract from './index';
-import iamstarkovRaw from './test-fixtures/iamstarkov';
-import jsunderhoodRaw from './test-fixtures/jsunderhood';
 
-// utils
-const trimP   = input => trimTag('p',  input);
-const trimH1  = input => trimTag('h1', input);
+const simple = extract(`
+# title
 
-const getHtml = compose(trimP, html);
+_24 july 2015_
 
+desc
 
-/**
- * ## iamstarkov
- */
-const iamstarkov = extract(iamstarkovRaw.raw);
+![](http://yo.io/)
 
-it('iamstarkov :: title.text', ()=> {
-  equal(iamstarkov.title.text, text(iamstarkovRaw.title));
-});
+content1
 
-it('iamstarkov :: date', ()=> {
-  equal(iamstarkov.date.text, iamstarkovRaw.date);
-});
+content2
+`.trim());
 
-it('iamstarkov :: desc.text', ()=> {
-  equal(iamstarkov.desc.text, text(iamstarkovRaw.desc));
-});
-
-it('iamstarkov :: image', ()=> {
-  equal(iamstarkov.image.src, iamstarkovRaw.image);
-});
-
-it('iamstarkov :: contentText', ()=> {
-  equal(iamstarkov.contentText, text(iamstarkovRaw.content));
-});
-
-it('iamstarkov :: contentHtml', ()=> {
-  equal(iamstarkov.contentHtml, html(iamstarkovRaw.content));
-});
-
-/**
- * ## jsunderhood
- */
-const jsunderhood = extract(jsunderhoodRaw.raw);
-
-it('jsunderhood :: title.text', ()=> {
-  equal(jsunderhood.title.text, text(jsunderhoodRaw.title));
-});
-
-it('jsunderhood :: date', ()=> {
-  equal(jsunderhood.date.text, jsunderhoodRaw.date);
-});
-
-it('jsunderhood :: desc.text', ()=> {
-  equal(jsunderhood.desc.text, text(jsunderhoodRaw.desc));
-});
-
-it('jsunderhood :: image', ()=> {
-  equal(jsunderhood.image.src, jsunderhoodRaw.image);
-});
-
-it('jsunderhood :: contentText', ()=> {
-  equal(jsunderhood.contentText, text(jsunderhoodRaw.content));
-});
-
-it('jsunderhood :: contentHtml', ()=> {
-  equal(jsunderhood.contentHtml, html(jsunderhoodRaw.content));
-});
+it('simple title', ()=> equal(simple.title.text, 'title'));
+it('simple date',  ()=> equal(simple.date.text,  '24 july 2015'));
+it('simple desc',  ()=> equal(simple.desc.text,  'desc'));
+it('simple image', ()=> equal(simple.image.src,  'http://yo.io/'));
