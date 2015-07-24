@@ -39,16 +39,16 @@ it('iamstarkov :: date', ()=> {
   equal(iamstarkov.date.text, iamstarkovRaw.date);
 });
 
-it('iamstarkov :: sortableDate', ()=> {
+it('iamstarkov :: date.sortable', ()=> {
   equal(iamstarkov.date.sortable, new Date(iamstarkovRaw.date).getTime());
 });
 
-it('iamstarkov :: descText', ()=> {
-  equal(iamstarkov.descText, text(iamstarkovRaw.desc));
+it('iamstarkov :: desc.text', ()=> {
+  equal(iamstarkov.desc.text, text(iamstarkovRaw.desc));
 });
 
-it('iamstarkov :: descHtml', ()=> {
-  equal(iamstarkov.descHtml, getHtml(iamstarkovRaw.desc));
+it('iamstarkov :: desc.html', ()=> {
+  equal(iamstarkov.desc.html, getHtml(iamstarkovRaw.desc));
 });
 
 it('iamstarkov :: image', ()=> {
@@ -80,16 +80,16 @@ it('jsunderhood :: date', ()=> {
   equal(jsunderhood.date.text, jsunderhoodRaw.date);
 });
 
-it('jsunderhood :: sortableDate', ()=> {
+it('jsunderhood :: date.sortable', ()=> {
   equal(jsunderhood.date.sortable, new Date(jsunderhoodRaw.date).getTime());
 });
 
-it('jsunderhood :: descText', ()=> {
-  equal(jsunderhood.descText, text(jsunderhoodRaw.desc));
+it('jsunderhood :: desc.text', ()=> {
+  equal(jsunderhood.desc.text, text(jsunderhoodRaw.desc));
 });
 
-it('jsunderhood :: descHtml', ()=> {
-  equal(jsunderhood.descHtml, getHtml(jsunderhoodRaw.desc));
+it('jsunderhood :: desc.html', ()=> {
+  equal(jsunderhood.desc.html, getHtml(jsunderhoodRaw.desc));
 });
 
 it('jsunderhood :: image', ()=> {
