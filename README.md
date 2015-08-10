@@ -44,6 +44,18 @@ article.content.html;  // <p>desc</p>
 
 ### extract(input, dateFormat, dateLocale)
 
+Return object `{ title, date, desc, image, content }`.
+
+I hope that all fields have self-explanatory names. Anyway, `desc` and `content` should be explained further: `desc` — first paragraph without date, `content` input without title and date.  All the fields are objects with such fields:
+
+* title, desc, content: `text` and `html`
+* date: `text`, `html`, `unix` and `moment`
+* image: `alt`, `src` and `html`
+
+Also everything in returned object has `node` field, which is an AST node, see [commonmark API][cmapi].
+
+[cmapi]: https://github.com/jgm/commonmark.js#usage
+
 #### input
 
 *Required*  
