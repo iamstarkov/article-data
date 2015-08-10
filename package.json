@@ -37,7 +37,7 @@
     "mocha": "*"
   },
   "dependencies": {
-    "get-md-content": "^0.1.1",
+    "get-md-content": "^1.0.0",
     "get-md-date": "^1.0.1",
     "get-md-desc": "^1.0.1",
     "get-md-image": "^1.0.2",
