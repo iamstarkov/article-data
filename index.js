@@ -5,10 +5,13 @@ import getImage   from 'get-md-image';
 import getContent from 'get-md-content';
 
 export default (input, dateFormat, dateLocale) => {
-  const title   = getTitle(input);
-  const date    = getDate(dateFormat, dateLocale, input);
-  const desc    = getDesc(input, date.text);
-  const image   = getImage(input);
-  const content = getContent(input, [title.text, date.text]);
-  return { title, date, desc, content, image };
+  if (!input) return;
+  const title     = getTitle(input);
+  const titleText = title && title.text;
+  const date      = getDate(dateFormat, dateLocale, input);
+  const dateText  = date && date.text;
+  const desc      = getDesc(input, dateText);
+  const image     = getImage(input);
+  const content   = getContent(input, [titleText, dateText]);
+  return { title, date, desc, image, content};
 };
