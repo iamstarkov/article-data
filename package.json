@@ -35,5 +35,12 @@
     "assert": "*",
     "isparta": "*",
     "mocha": "*"
+  },
+  "dependencies": {
+    "get-md-content": "^0.1.1",
+    "get-md-date": "^1.0.1",
+    "get-md-desc": "^1.0.1",
+    "get-md-image": "^1.0.2",
+    "get-md-title": "^1.0.3"
   }
 }
