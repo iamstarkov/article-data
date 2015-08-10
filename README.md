@@ -4,17 +4,8 @@
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
 [![Dependency Status][depstat-image]][depstat-url]
-[![DevDependency Status][depstat-dev-image]][depstat-dev-url]
 
 > Extract data from your markdown article
-
-Use-cases:
-
-* rendering posts itself (HTML)
-* rendering posts’ list (HTML)
-* meta-tags per each post (Text)
-* rss (HTML)
-* sorting posts by date
 
 ## Install
 
@@ -23,47 +14,72 @@ Use-cases:
 ## Usage
 
 ```js
-var extract = require('article-data');
-var raw = getYourMarkdownArticleHere();
+import extract from './index';
 
-var article = extract(raw);
+const input = `
+# title
 
-console.log(article);
-  // {
-  //   titleText, titleHtml,
-  //   date, sortableDate,
-  //   descText, descHtml,
-  //   image,
-  //   contentText, contentHtml
-  // }
+_24 july 2015_
+
+desc
+
+![alt](http://yo.io/)
+
+content1
+
+content2`;
+
+const article = extract(input, 'DD MMM YYYY', 'en');
+article.title.text;    // title
+article.date.text;     // 24 july 2015
+article.desc.text;     // desc
+article.image.src;     // http://yo.io/
+article.content.html;  // <p>desc</p>
+                       // <p><img src="http://yo.io/" alt="" /></p>
+                       // <p>content1</p>
+                       // <p>content2</p>
 ```
 
-Take a look into [tests][t].
-
-[t]: https://github.com/iamstarkov/article-data/blob/master/test.js
 ## API
 
-### default extract(input)
+### extract(input, dateFormat, dateLocale)
 
-Return object with article’s data:
+#### input
 
-* `titleText`, `titleHtml` — article’s title _in text and HTML_
-* `date` — content of first node, which contain [valid date][valid-date]. So it should be in English.
-* `sortableDate` — the same as `date` but `getTime()`;
-* `descText`, `descHtml` — first `Paragraph`, which not contain date _in text and HTML_.
-* `image` — `src` for first image in the article.
-* `contentText`, `contentHtml` — article itself without title and date _in text and HTML_.
+*Required*  
+Type: `String`
 
-[valid-date]: http://momentjs.com/docs/#/parsing/is-valid/
+Markdown string.
 
-##### input
+#### dateFormat
 
-Type: 'String', your markdown article.
+*Required*  
+Type: `String`
+
+Momentjs [format][format] for date, e.g. `DD MMMM YYYY`.
+
+[format]: http://momentjs.com/docs/#/displaying/format/
+
+#### dateLocale
+
+*Required*  
+Type: `String`
+
+One of 83 available in momentjs [locales][i18n], e.g. `en` or `fr`.
+
+[i18n]: http://momentjs.com/docs/#/i18n/
+
+## Related
+
+* [get-md-title][get-md-title] — get title from markdown article
+* [get-md-date][get-md-date] — get date from markdown article
+* [get-md-desc][get-md-desc] — get content from markdown article
+* [get-md-image][get-md-image] — get image from markdown article
+* [get-md-content][get-md-content] — get content from markdown article
 
 ## License
 
 MIT © [Vladimir Starkov](https://iamstarkov.com/)
-
 
 [npm-url]: https://npmjs.org/package/article-data
 [npm-image]: https://img.shields.io/npm/v/article-data.svg?style=flat-square
@@ -77,5 +93,9 @@ MIT © [Vladimir Starkov](https://iamstarkov.com/)
 [depstat-url]: https://david-dm.org/iamstarkov/article-data
 [depstat-image]: https://david-dm.org/iamstarkov/article-data.svg?style=flat-square
 
-[depstat-dev-url]: https://david-dm.org/iamstarkov/article-data
-[depstat-dev-image]: https://david-dm.org/iamstarkov/article-data/dev-status.svg?style=flat-square
+
+[get-md-title]: https://github.com/iamstarkov/get-md-title
+[get-md-date]: https://github.com/iamstarkov/get-md-date
+[get-md-desc]: https://github.com/iamstarkov/get-md-desc
+[get-md-image]: https://github.com/iamstarkov/get-md-image
+[get-md-content]: https://github.com/iamstarkov/get-md-content
