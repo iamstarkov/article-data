@@ -29,7 +29,7 @@ content1
 
 content2`;
 
-const article = extract(input, 'DD MMM YYYY', 'en');
+const article = extract(input, 'DD MMMM YYYY', 'en');
 article.title.text;    // title
 article.date.text;     // 24 july 2015
 article.desc.text;     // desc
