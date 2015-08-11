@@ -1,6 +1,6 @@
 {
   "name": "article-data",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Extract data from your markdown article",
   "main": "index.es5.js",
   "scripts": {
