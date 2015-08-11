@@ -14,7 +14,7 @@ content1
 
 content2`;
 
-const article = extract(input, 'DD MMMM YYYY', 'en');
+const article = extract(input, 'D MMMM YYYY', 'en');
 
 it('title', () =>
   equal(article.title.text, 'title'));

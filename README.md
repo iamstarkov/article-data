@@ -29,7 +29,7 @@ content1
 
 content2`;
 
-const article = extract(input, 'DD MMMM YYYY', 'en');
+const article = extract(input, 'D MMMM YYYY', 'en');
 article.title.text;    // title
 article.date.text;     // 24 july 2015
 article.desc.text;     // desc
@@ -68,7 +68,7 @@ Markdown string.
 *Required*  
 Type: `String`
 
-Momentjs [format][format] for date, e.g. `DD MMMM YYYY`.
+Momentjs [format][format] for date, e.g. `D MMMM YYYY`.
 
 [format]: http://momentjs.com/docs/#/displaying/format/
 
