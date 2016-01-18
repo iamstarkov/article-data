@@ -14,7 +14,7 @@
 ## Usage
 
 ```js
-import extract from './index';
+import extract from 'article-data';
 
 const input = `
 # title
