@@ -1,5 +1,7 @@
 # article-data
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/iamstarkov/article-data.svg)](https://greenkeeper.io/)
+
 [![NPM version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Coveralls Status][coveralls-image]][coveralls-url]
